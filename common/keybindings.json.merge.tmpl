@@ -1,0 +1,89 @@
+[
+    {
+        "key": "ctrl+meta+left",
+        "command": "workbench.action.navigateBackInNavigationLocations"
+    },
+    {
+        "key": "ctrl+meta+right",
+        "command": "workbench.action.navigateForwardInNavigationLocations"
+    },
+    {
+        "key": "ctrl+meta+down",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    { "key": "shift shift",          "command": "workbench.action.showCommands" },
+    { "key": "alt+j",                "command": "workbench.action.showCommands" },
+    { "key": "alt+k",                "command": "workbench.action.quickOpen" },
+
+    // https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/search/browser/searchActionsRemoveReplace.ts#L35
+    // With and without args.query
+    { 
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.findInFiles",
+        "when": "!filesExplorerFocus",
+        "args": {
+            "triggerSearch": true,
+            "filesToInclude": "./mj/**/tips-*.md",
+            "preserveCase": false,
+            "useExcludeSettingsAndIgnoreFiles": true,
+            "isRegex": false, 
+            "isCaseSensitive": false,
+            "matchWholeWord": false
+        }
+    },
+    { 
+        "key": "ctrl+shift+d",
+        "command": "workbench.action.findInFiles",
+        "when": "!filesExplorerFocus",
+        "args": {
+            "triggerSearch": true,
+            "filesToInclude": "./mj/",
+            "preserveCase": false,
+            "useExcludeSettingsAndIgnoreFiles": true,
+            "isRegex": false, 
+            "isCaseSensitive": false,
+            "matchWholeWord": false
+        }
+    },
+    { 
+        "key": "ctrl+shift+f",
+        "command": "workbench.action.findInFiles",
+        "when": "!filesExplorerFocus && !editorHasSelection",
+        "args": {
+            "query": "",
+            "triggerSearch": true,
+            "filesToInclude": "./",
+            "preserveCase": false,
+            "useExcludeSettingsAndIgnoreFiles": true,
+            "isRegex": false, 
+            "isCaseSensitive": false,
+            "matchWholeWord": false,
+            "filesToExclude": "**/temp/**,**/tests/**,*_test.py,*_test.go"
+        }
+    },   
+    { 
+        "key": "ctrl+shift+f",
+        "command": "workbench.action.findInFiles",
+        "when": "!filesExplorerFocus && editorHasSelection",
+        "args": {
+            "query": "${selectedText}",
+            "triggerSearch": true,
+            "filesToInclude": "./",
+            "preserveCase": false,
+            "useExcludeSettingsAndIgnoreFiles": true,
+            "isRegex": false, 
+            "isCaseSensitive": false,
+            "matchWholeWord": false,
+            "filesToExclude": "**/temp/**,**/tests/**,*_test.py,*_test.go"
+        }
+    },
+    { 
+        "key": "ctrl+shift+f",
+        "command": "filesExplorer.findInFolder",
+        "when": "explorerResourceIsFolder && filesExplorerFocus && foldersViewVisible && !inputFocus"
+    },
+
+    { "key": "ctrl+k ctrl+k",  "command": "copyFilePath", "when": "editorFocus" },
+    { "key": "ctrl+shift+c",   "command": "setSelection", "when": "editorFocus" },
+]
